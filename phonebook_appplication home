@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phonebook</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="app-container phonebook-container active">
+    <header class="app-header">
+      <h1></h1>
+      <button id="logout-btn" class="btn btn-secondary">Logout</button>
+    </header>
+
+    <form id="add-contact-form">
+      <h3>Add / Update Contact</h3>
+      <input type="hidden" id="editing-index" />
+      <div class="input-group">
+        <input type="text" id="contact-name" required />
+        <label for="contact-name">Name</label>
+      </div>
+      <div class="input-group">
+        <input type="tel" id="contact-phone" required />
+        <label for="contact-phone">Phone Number</label>
+      </div>
+      <button type="submit" class="btn">Save Contact</button>
+    </form>
+
+    <h2>Contacts</h2>
+    <div id="contact-list"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

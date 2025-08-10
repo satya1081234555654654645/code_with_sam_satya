@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Phonebook</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <form id="login-form" class="form-container active">
+      <h3>Login</h3>
+      <div class="input-group">
+        <input type="text" id="login-username" required />
+        <label for="login-username">Username</label>
+      </div>
+      <div class="input-group">
+        <input type="password" id="login-password" required />
+        <label for="login-password">Password</label>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="form-switch">Don't have an account? <a href="signup.html">Sign up</a></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const username = document.getElementById("login-username").value;
+      const password = document.getElementById("login-password").value;
+      const users = JSON.parse(localStorage.getItem("phonebook_users")) || [];
+      const user = users.find(u => u.username === username && u.password === password);
+
+      if (user) {
+        sessionStorage.setItem("loggedInUser", username);
+        window.location.href = "phonebook.html";
+      } else {
+        alert("Invalid credentials");
+      }
+    });
+  </script>
+</body>
+</html>
